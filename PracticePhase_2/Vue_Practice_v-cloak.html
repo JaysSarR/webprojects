@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-cloak</title>
+  <style>
+    [v-cloak]{
+      display: None;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-cloak>{{message}}</h2>
+</div>
+<!--v-cloak防止解析过程中卡顿-->
+<!--v-cloak属性在代码解析完成后就被删除-->
+<script src="../vue/vue.js"></script>
+<script>
+  setTimeout(function (){
+    const app = new Vue({
+      el: "#app",
+      data: {
+        message: "Hello World!"
+      }
+    })
+  },2000)
+</script>
+</body>
+</html>

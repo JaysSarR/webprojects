@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework_1_v-bind_v-for</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<!--需求：点击列表的某一项，那么该项变为红色，其他变为黑色-->
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <li v-for="(item,index) in movies" v-bind:class="{active:currentIndex === index}" @click="setIndex(index)">{{item}}</li>
+  </ul>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      movies:['海王','海尔兄弟','火影忍者','进击的巨人'],
+      currentIndex: -1
+    },
+    methods:{
+      setIndex:function(index){
+        this.currentIndex = index
+      }
+    }
+  })
+</script>
+</body>
+</html>

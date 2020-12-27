@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-on_modifier</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick()">
+    <h2>{{message}}</h2>
+    <button @click.stop="btnClick()">按钮</button>
+    <button @click.stop.once="btnClick()">按钮</button>
+  </div>
+
+  <br>
+  <form action="baidu">
+    <!--    阻止默认事件的发生-->
+    <input type="submit" value="提交" @click.prevent="submitClick()">
+  </form>
+
+  <!--  监听键盘点击-->
+  <!--  keyup后面可以加.监听特定按键-->
+  <input type="text" @keyup.enter="keyUp()">
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    },
+    methods: {
+      divClick() {
+        console.log("div clicked.")
+      },
+      btnClick() {
+        console.log("button clicked.")
+      },
+      submitClick() {
+        console.log("submit clicked.")
+      },
+      keyUp() {
+        console.log("keyboard clicked.")
+      }
+    }
+  })
+</script>
+</body>
+</html>

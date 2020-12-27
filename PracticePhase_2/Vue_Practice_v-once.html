@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-once</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+  <h1 v-once>{{message}}</h1>
+<!--  v-once在message发生改变后不会随之改变-->
+
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:"Hello World!",
+        }
+    })
+</script>
+</body>
+</html>

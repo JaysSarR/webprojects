@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习1</title>
+</head>
+<body>
+<div id="print">
+    <h1>{{message}}</h1>
+    <h2>{{sentences}}</h2>
+    <ul>
+        <li v-for = "item in sentences">{{item}}</li>
+    </ul>
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#print",
+        data:{
+            message:"Hello World!",
+            sentences:["字段1","字段2","字段3","字段4"]
+        }
+    })
+</script>
+</body>
+</html>

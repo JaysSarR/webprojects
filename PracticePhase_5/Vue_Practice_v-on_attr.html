@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-on_attr</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>{{counter}}</h2>
+  <button @click="increment()">+</button>
+  <button @click="decrement()">-</button>
+  <button @click="getEvent(123,$event)">浏览器事件</button>
+  <!--  捕获浏览器事件需要加$-->
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      counter: 0
+    },
+    methods: {
+      increment() {
+        this.counter++
+      },
+      decrement() {
+        this.counter--
+      },
+      getEvent(str,event){
+        console.log("12321", str, event)
+      }
+    }
+  })
+</script>
+</body>
+</html>

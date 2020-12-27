@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-bind_class</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2 class="active">{{message}}</h2>
+  <h2 :class="state">{{message}}</h2>
+  <!--  <h2 v-bind:class="{类名1:true,类名2:false}">{{message}}</h2>-->
+  <!--  通过类名与布尔值配对的方式决定哪个类被添加到标签上-->
+  <!--  还有数组语法-->
+  <h2 :class="[class1,class2]">{{message}}</h2>
+
+  <h2 v-bind:class="getClass()">{{message}}</h2>
+  <h2 v-bind:class="{active:isActive,line:isLine}">{{message}}</h2>
+  <button v-on:click="changeState">变色</button>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      state: "active",
+      isActive: "false",
+      isLine: "false",
+      class1: "11111",
+      class2: "22222"
+    },
+    methods: {
+      changeState: function () {
+        this.isActive = !this.isActive
+      },
+      getClass: function () {
+        return {active: this.isActive, line: this.isLine}
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

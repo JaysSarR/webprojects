@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-bind_style</title>
+</head>
+<body>
+<div id="app">
+  <!--  同样有数组形式-->
+  <h2 :style="[baseStyle,style2]">{{message}}</h2>
+  <h2 :style="{fontSize:finalFontSize + 'px', color:finalColor}">{{message}}</h2>
+  <h2 :style="getStyles()">{{message}}</h2>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      finalFontSize:100,
+      finalColor:"red",
+      baseStyle:{fontSize:'100px'},
+      style2:{color:'red'}
+    },
+    methods:{
+      getStyles:function () {
+        return {fontSize:this.finalFontSize + 'px', color:this.finalColor}
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------Getter&Setter</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>{{fullName}}</h2>
+<!--  使用时是当做属性，不是方法，不要加小括号-->
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      firstName: "Shaobo",
+      lastName: "Su"
+    },
+    computed:{
+      fullName:{
+        set:function (newName) {
+          console.log("---------")
+          const name = newName.split(" ")
+          this.firstName = name[0]
+          this.lastName = name[1]
+        },
+        get:function () {
+          return this.firstName+ " " + this.lastName
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

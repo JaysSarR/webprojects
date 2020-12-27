@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-if_else</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-if="isShow">
+    <div>{{message}}</div>
+    <div>{{message}}</div>
+    <div>{{message}}</div>
+    <div>{{message}}</div>
+  </h2>
+  <h2 v-else>与上方一定不同时显示</h2>
+  <br>
+  <h2>
+    <!--    不建议通过标签判断，通过属性判断更好-->
+    <div v-if="score>90">优秀</div>
+    <div v-else-if="score>80">良好</div>
+    <div v-else-if="score>70">稍差</div>
+    <div v-else>及格</div>
+  </h2>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      isShow: true,
+      score: 98
+    }
+  })
+</script>
+</body>
+</html>

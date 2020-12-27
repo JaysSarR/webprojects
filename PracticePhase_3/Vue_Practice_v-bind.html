@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-bind</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <img v-bind:src="imgUrl" alt="">
+  <a :href="aHrefUrl">转换</a>
+<!--  v-bind语法糖形式：直接使用冒号-->
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      imgUrl:"https://i0.hdslb.com/bfs/archive/813c7771d21c4dc18f5df4c99083ce0c3b40e0b8.png",
+      aHrefUrl:"https://i0.hdslb.com/bfs/live/2dec7c67a8017adfccbd8c5cdde07f1686fb623d.jpg@287w_297h_1c_100q.webp"
+    }
+  })
+</script>
+</body>
+</html>
