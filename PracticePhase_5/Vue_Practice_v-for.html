@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-for</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <!--    遍历数组，绑定key可以提高效率，不然线性表插值效率很差，可以理解为从顺序表变为了链表-->
+    <li v-for="items in names" :key="items">{{items}}</li>
+  </ul>
+  <br>
+  <ul>
+    <!--    带下标-->
+    <li v-for="(items,index) in names">{{index+1}}.{{items}}</li>
+  </ul>
+  <br>
+  <ul>
+    <!--    遍历对象-->
+    <li v-for="item in info">{{item}}</li>
+    <!--    遍历对象字典-->
+    <li v-for="(value, key, index) in info">{{key}}-{{value}}-{{index}}</li>
+  </ul>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      names:['Sushaobo','Wangyuhao','Heshuyi','Liuyang'],
+      info:{
+        name:'Sushaobo',
+        age:22,
+        height:1.75
+      }
+    }
+  })
+</script>
+</body>
+</html>

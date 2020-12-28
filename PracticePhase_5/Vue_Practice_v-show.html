@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-show</title>
+</head>
+<body>
+<div id="app">
+  <h2 v-show="isShow">{{message}}</h2>
+  <!--  v-show方法仅是从视觉上隐藏，但在页面上还是会渲染，而v-if在不满足条件的情况下会直接不对元素进行渲染，v-show更消耗内存，v-if更常用-->
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      isShow: true
+    }
+  })
+</script>
+</body>
+</html>
