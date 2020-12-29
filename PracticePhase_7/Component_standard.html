@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------Component_standard</title>
+</head>
+<body>
+<!--自定义组件-->
+<div id="app">
+  <cpn></cpn>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const cpnSample = Vue.extend({
+    template: `
+      <div>
+        <h2>菜单</h2>
+        <h2>选项</h2>
+       <h2>退出</h2>
+      </div>
+    `
+  })
+  Vue.component("cpn",cpnSample)
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-model_modifier</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <div>
+    <!--    lazy:需要敲回车才会加载-->
+    <label for="lazyTest">
+      <input type="text" id="lazyTest" v-model.lazy = "message">
+    </label>
+    <h2>{{message}}</h2>
+  </div>
+  <br>
+  <br>
+  <div>
+    <!--    number:将绑定的String转换为number-->
+    <!--    v-model默认绑定类型均为String-->
+    <label for="numberTest">
+      <input type="number" id="numberTest" v-model.number = "age">
+    </label>
+    <h2>{{age}}--{{typeof age}}</h2>
+  </div>
+  <br>
+  <br>
+  <div>
+    <!--    trim:去除空格-->
+    <label for="trimTest">
+      <input type="text" id="trimTest" v-model.trim = "name">
+    </label>
+    <h2>{{name}}--{{typeof name}}</h2>
+  </div>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      age:0,
+      name:""
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-model_select</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <select name="selectFruit" id="fruit" v-model="fruit">
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="火龙果">火龙果</option>
+    <option value="芒果">芒果</option>
+    <option value="梨">梨</option>
+  </select>
+  <h2>你选择的水果是：{{fruit}}</h2>
+  <br>
+  <br>
+  <select name="selectMultipleFruit" id="multipleFruit" v-model="multipleFruit" multiple>
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="火龙果">火龙果</option>
+    <option value="芒果">芒果</option>
+    <option value="梨">梨</option>
+  </select>
+  <h2>你选择的水果是：{{multipleFruit}}</h2>
+  <br>
+  <br>
+  <div>
+    <label v-for="item in hobbies" :for="item">
+      <input type="checkbox" :value="item" :id="item" v-model="selectedHobbies">{{item}}
+    </label>
+  </div>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      fruit: "香蕉",
+      multipleFruit: [],
+      hobbies: ["足球", "篮球", "羽毛球", "乒乓球"],
+      selectedHobbies: []
+    }
+  })
+</script>
+</body>
+</html>

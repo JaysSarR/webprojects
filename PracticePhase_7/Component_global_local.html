@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------global_local</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+<br>
+<br>
+<div id="app2">
+  <cpn></cpn>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  //全局组件
+  const cpn = Vue.extend({
+    template:`
+        <div>
+          <h2>菜单</h2>
+          <h2>选项</h2>
+          <h2>退出</h2>
+        </div>
+    `
+  })
+  Vue.component("cpn",cpn)
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    },
+    components:{
+      //局部组件
+      cpnC:cpn
+    }
+  })
+
+  const app2 = new Vue({
+    el:"#app2"
+  })
+</script>
+</body>
+</html>
