@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------v-model_radio_checkbox</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <div>
+    <!--    加上同一个name可以保证互斥，但v-model绑定同一个不加name也是可以的-->
+    <label for="male">
+      <input type="radio" id="male" name="sex" value="男" v-model="sex">男
+    </label>
+    <label for="female">
+      <input type="radio" id="female" name="sex" value="女" v-model="sex">女
+    </label>
+  </div>
+  <h2>您选择的性别是：{{sex}}</h2>
+  <div>
+    <label for="accept">
+      <input type="checkbox" id="accept" v-model="isAccept">同意协议
+    </label>
+    <br>
+    <br>
+    <button :disabled="!isAccept">下一步</button>
+  </div>
+  <h2>您选择的是：{{isAccept}}</h2>
+  <br>
+  <div>
+    <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="足球" v-model="hobbies">足球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+    <h2>您的爱好是：{{hobbies}}</h2>
+  </div>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!",
+      sex:"男",
+      isAccept:false,
+      hobbies:[]
+    }
+  })
+</script>
+</body>
+</html>
