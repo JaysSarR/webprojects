@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------Component_script</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <cpn></cpn>
+</div>
+
+<!--自定义组件的script写法-->
+<script type="text/x-template" id="cpn">
+<div>
+  <h2>标题</h2>
+  <p>内容</p>
+</div>
+</script>
+
+<!--自定义组件的template写法-->
+<template id="template_cpn">
+  <div>
+    <h2>标题</h2>
+    <p>内容</p>
+  </div>
+</template>
+<script src="../vue/vue.js"></script>
+<script>
+  Vue.component('cpn',{
+    template:`#template_cpn`
+  })
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------Component_candy</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <cpn1></cpn1>
+  <cpn2></cpn2>
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  // 全局组件语法糖写法，直接传入对象
+  Vue.component('cpn1',{
+    template:`
+        <div>
+          <h2>标题</h2>
+          <p>内容</p>
+        </div>
+    `
+  })
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    },
+    components:{
+      //局部组件语法糖
+      "cpn2":{
+        template: `
+        <div>
+          <h2>标题</h2>
+          <p>内容</p>
+        </div>
+        `
+      }
+    }
+  })
+</script>
+</body>
+</html>

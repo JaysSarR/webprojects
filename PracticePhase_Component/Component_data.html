@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Practice------Component_data</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <cpn></cpn>
+</div>
+
+<!--自定义计数器组件template-->
+<template id="template_cpn">
+  <div>
+    <h2>{{counter}}</h2>
+    <button @click="increment()">+</button>
+    <button @click="decrement()">-</button>
+  </div>
+</template>
+
+<script src="../vue/vue.js"></script>
+<script>
+  //模板所需要的数据必须以data函数形式传递，并需要返回值
+  Vue.component('cpn', {
+    template: `#template_cpn`,
+    data() {
+      return {
+        counter: 0
+      }
+    },
+    methods:{
+      increment(){
+        this.counter++
+      },
+      decrement(){
+        this.counter--
+      }
+    }
+  })
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "Hello World!"
+    }
+  })
+</script>
+</body>
+</html>
